@@ -15,6 +15,7 @@ if (process.env.GITHUB_ACTIONS){
         const contributor = JSON.parse(content);
         const keys = Object.keys(contributor);
         if (contributor['github-username']!=user){
+            console.error(`${contributor['github-username']} does not match you username ${user}`)
             throw new Error(`${contributor['github-username']} does not match you username ${user}`)
         }
         if (keys!=[
@@ -23,9 +24,11 @@ if (process.env.GITHUB_ACTIONS){
             'favourite-music',
             'favourite-color'
           ]){
+              console.error("All The Properties not present or extra properties given")
               throw new Error("All The Properties not present or extra properties given")
           }
     }else{
+        console.error(`File contributors/${user}.json does not exist`)
         throw new Error(`File contributors/${user}.json does not exist`);
     }
 }else{
