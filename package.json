@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/YogPanjarale/ci-cd-test/issues"
   },
-  "homepage": "https://github.com/YogPanjarale/ci-cd-test#readme"
+  "homepage": "https://github.com/YogPanjarale/ci-cd-test#readme",
+  "dependencies": {
+    "jest": "^27.0.6"
+  }
 }
