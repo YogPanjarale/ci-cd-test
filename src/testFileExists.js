@@ -1,11 +1,12 @@
 // console.log("Hello World")
-const user = process.env.GITHUB_ACTOR ||"YogPanjarale"
+const user = process.env.GITHUB_ACTOR 
 const repo = process.env.GITHUB_REPOSITORY
 
 // load fs
 const fs = require("fs");
-const path = `./contributors/${user}`
-
+const path_ = require('path');
+const path = path_.join(__dirname,`../contributors/${user}`)
+// console.log(path)
 if (process.env.GITHUB_ACTIONS){
 
     if (fs.existsSync(path)){
