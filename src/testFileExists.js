@@ -6,6 +6,12 @@ const repo = process.env.GITHUB_REPOSITORY
 const fs = require("fs");
 const path_ = require('path');
 const path = path_.join(__dirname,`../contributors/${user}.json`)
+function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+  }
 // console.log(path,__dirname)
 if (process.env.GITHUB_ACTIONS){
 
@@ -32,7 +38,7 @@ if (process.env.GITHUB_ACTIONS){
             'favourite-music',
             'favourite-color'
           ]
-        if (keys!=expected){
+        if (arrayEquals(expected,keys)){
               console.error("All The Properties not present or extra properties given")
               console.log(keys,expected)
               throw new Error("All The Properties not present or extra properties given")
