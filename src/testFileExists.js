@@ -26,13 +26,15 @@ if (process.env.GITHUB_ACTIONS){
             console.error(`${contributor['github-username']} does not match you username ${user}`)
             throw new Error(`${contributor['github-username']} does not match you username ${user}`)
         }
-        if (keys!=[
+        const expected=[
             'github-username',
             'favourite-emoji',
             'favourite-music',
             'favourite-color'
-          ]){
+          ]
+        if (keys!=expected){
               console.error("All The Properties not present or extra properties given")
+              console.log(keys,expected)
               throw new Error("All The Properties not present or extra properties given")
           }
     }else{
