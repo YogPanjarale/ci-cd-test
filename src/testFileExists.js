@@ -6,7 +6,7 @@ const repo = process.env.GITHUB_REPOSITORY
 const fs = require("fs");
 const path_ = require('path');
 const path = path_.join(__dirname,`../contributors/${user}`)
-// console.log(path)
+console.log(path,__dirname)
 if (process.env.GITHUB_ACTIONS){
 
     if (fs.existsSync(path)){
