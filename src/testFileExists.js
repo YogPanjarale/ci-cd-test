@@ -38,7 +38,13 @@ if (process.env.GITHUB_ACTIONS){
             'favourite-music',
             'favourite-color'
           ]
-        if (arrayEquals(expected,keys)){
+        expected.forEach(function(key){
+            if (keys.includes(key))return
+            else 
+                console.error(`${key} is missing from the file`)
+                throw new Error(`${key} is missing from the file`)
+        })
+        if (expected.length!=keys.length){
               console.error("All The Properties not present or extra properties given")
               console.log(keys,expected)
               throw new Error("All The Properties not present or extra properties given")
