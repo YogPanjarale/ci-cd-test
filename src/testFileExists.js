@@ -13,6 +13,13 @@ if (process.env.GITHUB_ACTIONS){
         
         // read the file
         const content = fs.readFileSync(path);
+        try {
+            
+            const contributor = JSON.parse(content);
+        } catch (error) {
+            console.error("A JSON file was expected error parisng file to json")
+            throw new Error("A JSON file was expected error parisng file to json")
+        }
         const contributor = JSON.parse(content);
         const keys = Object.keys(contributor);
         if (contributor['github-username']!=user){
